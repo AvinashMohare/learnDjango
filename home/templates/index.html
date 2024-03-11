@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block start %}
+<h1>This is a Django Server</h1>
+<hr />
+
+<button>
+    <a href="about">About</a>
+</button>
+
+<button>
+    <a href="contact/">Contact</a>
+</button>
+
+<hr />
+
+<table>
+    <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Can Vote</th>
+    </tr>
+
+    {% for people in peoples %}
+
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{people.name}}</td>
+        <td>{{people.age}}</td>
+        <td>{% if people.age >= 18%} Can {% else %} Can't {% endif %}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+<hr />
+<p>{{text}}</p>
+
+{% endblock %}
