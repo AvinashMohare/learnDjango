@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import home, success_page, contact, about
+from vege.views import receipes
 
 urlpatterns = [
     path('', home, name="home"),
     path('contact/', contact, name="contact"),
     path('about/', about, name="about"),
-
     path('success-page/', success_page, name="success_page"),
+
+
+    path('receipes/', receipes, name="receipes"),
     path('admin/', admin.site.urls),
 ]
