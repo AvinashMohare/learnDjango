@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import home, success_page, contact, about
-from vege.views import receipes
+from vege.views import receipes, delete_receipe
 
 urlpatterns = [
     path('', home, name="home"),
@@ -27,5 +27,6 @@ urlpatterns = [
 
 
     path('receipes/', receipes, name="receipes"),
+    path('delete-receipe/<id>/', delete_receipe, name = "delete_receipe"),
     path('admin/', admin.site.urls),
 ]

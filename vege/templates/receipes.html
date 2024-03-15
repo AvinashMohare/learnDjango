@@ -45,5 +45,31 @@
                 </button>
             </form>
         </div>
+
+        <table border="1">
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Desc</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for receipe in receipes %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{receipe.receipe_name}}</td>
+                <td>{{receipe.receipe_description}}</td>
+                <td>{{receipe.receipe_image}}</td>
+                <td>
+                    <button>
+                        <a href="/delete-receipe/{{receipe.id}}/" >
+                        Delete</a></button>
+    
+                    </td>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
