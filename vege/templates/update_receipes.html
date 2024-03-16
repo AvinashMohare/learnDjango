@@ -3,11 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Receipes</title>
+        <title>Update Receipes</title>
     </head>
     <body>
-        <h1>Receipes</h1>
-
+        <h2>Update Receipes</h2>
         <div>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -19,13 +18,19 @@
                         type="text"
                         name="receipe_name"
                         class="form-control"
+                        value="{{receipe.receipe_name}}"
                     />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label"
                         >Receipe Description</label
                     >
-                    <textarea class="form-control" name="receipe_description">
+                    <textarea
+                        class="form-control"
+                        name="receipe_description"
+                        placeholder=""
+                    >
+                    {{receipe.receipe_description}}
                     </textarea>
                 </div>
 
@@ -41,43 +46,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    Add Receipe
+                    Update Receipe
                 </button>
             </form>
         </div>
-
-        <table border="1">
-            <tr>
-                <th>S.No</th>
-                <th>Name</th>
-                <th>Desc</th>
-                <th>Image</th>
-                <th>Actions</th>
-                <th>Updates</th>
-            </tr>
-
-            {% for receipe in receipes %}
-            <tr>
-                <td>{{forloop.counter}}</td>
-                <td>{{receipe.receipe_name}}</td>
-                <td>{{receipe.receipe_description}}</td>
-                <td>{{receipe.receipe_image}}</td>
-                <td>
-                    <button>
-                        <a href="/delete-receipe/{{receipe.id}}/" >
-                        Delete</a></button>
-    
-                    </td>
-                </td>
-                <td>
-                    <button>
-                        <a href="/update-receipe/{{receipe.id}}/" >
-                        Update</a></button>
-    
-                    </td>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
     </body>
 </html>
